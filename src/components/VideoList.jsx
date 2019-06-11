@@ -1,11 +1,11 @@
 // import App from './App.js';
 import VideoListEntry from './VideoListEntry.js';
 
-var VideoList = (props) => (
+var VideoList = ({videos, titleClick}) => (
   <div className="video-list">
     <ul>
-      {props.videos.map(video =>
-        <VideoListEntry video={video} titleClick={props.titleClick}/>
+      {videos.map(video =>
+        <VideoListEntry video={video} titleClick={titleClick} key={video.eTag}/>
       )}
     </ul>
   </div>
