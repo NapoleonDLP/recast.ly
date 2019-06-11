@@ -5,10 +5,17 @@ import VideoPlayer from './VideoPlayer.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.titleClick = this.titleClick.bind(this);
     this.state = {
       videos: exampleVideoData,
-      currentVideo: exampleVideoData[0]
+      video: exampleVideoData[0]
     };
+  }
+
+  titleClick(e) {
+    this.setState({video: e.target.value});
+    console.log('click');
+    console.log(this.state);
   }
 
   render() {
@@ -21,11 +28,11 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div><h5><em><VideoPlayer video={this.state.currentVideo} /></em> view goes here</h5></div>
+            <div><h5><em><VideoPlayer video={this.state.video}/></em> view goes here</h5></div>
           </div>
           <div className="col-md-5">
             <div><h5><em>
-              <VideoList videos={this.state.videos} />
+              <VideoList videos={this.state.videos} titleClick={this.titleClick} />
             </em></h5></div>
           </div>
         </div>
