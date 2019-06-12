@@ -1,6 +1,6 @@
 var Search = ({query}) => (
   <div className="search-bar form-inline">
-    <input className="form-control" type="text" onChange={(e) => { query(e.target.val()); }}/>
+    <input className="form-control" type="text" onChange={(e) => { query(e.target.value); }}/>
     <button className="btn hidden-sm-down">
       <span className="glyphicon glyphicon-search"></span>
     </button>

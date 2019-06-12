@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   query(query) {
-    this.searchYouTube(query, this.setState({videos: data}));
+    searchYouTube(query);
   }
 
   titleClick(video) {
@@ -28,7 +28,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em><Search search={this.query} /></em> view goes here</h5></div>
+            <div><h5><em><Search query={this.query} /></em> view goes here</h5></div>
           </div>
         </nav>
         <div className="row">
