@@ -1,15 +1,22 @@
 import exampleVideoData from '/src/data/exampleVideoData.js';
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
+import Search from './Search.js';
+import searchYouTube from '../lib/searchYouTube.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     // this.titleClick = this.titleClick.bind(this);
+    this.query = this.query.bind(this);
     this.state = {
       videos: exampleVideoData,
       currentVideo: exampleVideoData[0]
     };
+  }
+
+  query(query) {
+    this.searchYouTube(query, this.setState({videos: data}));
   }
 
   titleClick(video) {
@@ -21,7 +28,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
+            <div><h5><em><Search search={this.query} /></em> view goes here</h5></div>
           </div>
         </nav>
         <div className="row">
